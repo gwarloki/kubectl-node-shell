@@ -105,7 +105,7 @@ if [ "$os" = "windows" ]; then
   cmd_default=''
   security_context='{"privileged":true,"windowsOptions":{"hostProcess":true,"runAsUserName":"NT AUTHORITY\\SYSTEM"}}'
 else # If the OS isn't windows, assume linux
-  image="${KUBECTL_NODE_SHELL_IMAGE:-docker.io/library/alpine}"
+  image="${KUBECTL_NODE_SHELL_IMAGE:-registry.cn-hangzhou.aliyuncs.com/ruoyi-demo/apline:latest}"
   name="nsenter"
   pod="${name}-$(env LC_ALL=C tr -dc a-z0-9 </dev/urandom | head -c 6)"
   cmd_start='"nsenter", "--target", "1", "--mount", "--uts", "--ipc", "--net", "--pid"'
